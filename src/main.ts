@@ -1,20 +1,20 @@
-import { debug, getInput, setFailed } from '@actions/core';
+import * as core from '@actions/core';
 import { setOutputs } from './helpers';
 import { wait } from './wait';
 
 async function run(): Promise<void> {
   try {
-    const ms: string = getInput('milliseconds');
-    debug(`Waiting ${ms} milliseconds ...`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+    const ms: string = core.getInput('milliseconds');
+    core.debug(`Waiting ${ms} milliseconds ...`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
 
-    debug(new Date().toTimeString());
+    core.debug(new Date().toTimeString());
     await wait(parseInt(ms, 10));
     const time = new Date().toTimeString();
-    debug(time);
+    core.debug(time);
 
     setOutputs({ time });
   } catch (error) {
-    if (error instanceof Error) setFailed(error.message);
+    if (error instanceof Error) core.setFailed(error.message);
   }
 }
 
