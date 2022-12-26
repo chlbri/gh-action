@@ -71,6 +71,9 @@ jobs:
           milliseconds: 1000
 
       - name: Get the output time
+        run: echo "The time is ${{ steps.testt.outputs.time }}"
+
+      - name: Test the output time
         uses: actions/github-script@v6
         env:
           TIME: ${{ steps.testt.outputs.time }}
