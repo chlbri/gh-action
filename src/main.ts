@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import { echo } from 'shelljs';
+import { setOutputs } from './helpers';
 import { wait } from './wait';
 
 async function run(): Promise<void> {
@@ -9,9 +9,10 @@ async function run(): Promise<void> {
 
     core.debug(new Date().toTimeString());
     await wait(parseInt(ms, 10));
-    core.debug(new Date().toTimeString());
+    const time = new Date().toTimeString();
+    core.debug(time);
 
-    echo(`"time=${new Date().toTimeString()}" >> $GITHUB_OUTPUT`);
+    setOutputs({ time });
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message);
   }
