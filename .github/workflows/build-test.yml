@@ -71,12 +71,11 @@ jobs:
           milliseconds: 1000
 
       - name: Get the output time
-        uses: actions/github-script@v6
-        with:
-          script: |
-            if ("${{ steps.testt.outputs.time }}" === "" )
-            { core.setFailed('Output is not defined!') }
-            else
-            { echo "${{ steps.testt.outputs.time }}"
-              console.log('Output is defined!')
-            }
+        run: |
+          if [ ${{ steps.testt.outputs.time }} == "" ]
+          then
+            echo "Output is not defined!"
+            exit 1
+          else
+            echo "Output is defined!""
+          fi
