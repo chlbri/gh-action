@@ -3,3 +3,5 @@ build/
 lib/
 node_modules/
 jest.config.js
+
+# Logs
