@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "TypeScript template action",
-  "main": "lib/index.js",
+  "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
     "remove": "rm -rf node_modules pnpm-lock.json",
@@ -12,7 +12,9 @@
     "eslint": "eslint src/**/*.ts --fix",
     "lint": "pnpm run prettier && pnpm run eslint",
     "test": "vitest run --passWithNoTests",
-    "package": "ncc build --source-map --license licenses.txt"
+    "build:test": "pnpm run build && pnpm run packege && pnpm run test",
+    "package": "ncc build --source-map --license licenses.txt -o build",
+    "build:package": "pnpm run build && pnpm run package"
   },
   "repository": {
     "type": "git",

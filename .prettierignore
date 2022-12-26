@@ -1,3 +1,5 @@
-dist/
-lib/
-node_modules/
+# Ignore artifacts:
+node_modules
+publish
+publish_npm
+**/*.typegen.ts
