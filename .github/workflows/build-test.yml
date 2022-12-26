@@ -53,24 +53,13 @@ jobs:
       - name: Test
         run: pnpm run test
 
-  test: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: 'Install node'
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
       - name: Use the action
         uses: ./
         id: testt
         with:
           milliseconds: 1000
 
-      - name: Get the output time
+      - name: Test the output time
         run: |
           if [[ "${{ steps.testt.outputs.time }}" == "" ]]
           then

@@ -11,7 +11,7 @@ async function run(): Promise<void> {
     await wait(parseInt(ms, 10));
     const time = new Date().toTimeString();
     core.debug(time);
-    core
+    core;
 
     // setOutputs({ time });
   } catch (error) {
