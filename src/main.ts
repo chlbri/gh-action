@@ -1,4 +1,4 @@
-import { setFailed, debug, getInput } from '@actions/core';
+import { debug, getInput, setFailed } from '@actions/core';
 import { setOutputs } from './helpers';
 import { wait } from './wait';
 
@@ -12,7 +12,7 @@ async function run(): Promise<void> {
     const time = new Date().toTimeString();
     debug(time);
 
-    // setOutputs({ time });
+    setOutputs({ time });
   } catch (error) {
     if (error instanceof Error) setFailed(error.message);
   }

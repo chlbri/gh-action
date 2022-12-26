@@ -1,6 +1,29 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 461:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.setOutputs = exports.setOutput = void 0;
+const child_process_1 = __nccwpck_require__(81);
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+function setOutput(name, value) {
+    return (0, child_process_1.exec)(`echo "${name}=${value}" >> $GITHUB_OUTPUT`);
+}
+exports.setOutput = setOutput;
+function setOutputs(outputs) {
+    Object.entries(outputs).forEach(([key, value]) => {
+        setOutput(key, value);
+    });
+}
+exports.setOutputs = setOutputs;
+
+
+/***/ }),
+
 /***/ 760:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -17,6 +40,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core_1 = __nccwpck_require__(686);
+const helpers_1 = __nccwpck_require__(461);
 const wait_1 = __nccwpck_require__(129);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -27,7 +51,7 @@ function run() {
             yield (0, wait_1.wait)(parseInt(ms, 10));
             const time = new Date().toTimeString();
             (0, core_1.debug)(time);
-            // setOutputs({ time });
+            (0, helpers_1.setOutputs)({ time });
         }
         catch (error) {
             if (error instanceof Error)
@@ -2763,6 +2787,14 @@ exports["default"] = _default;
 
 "use strict";
 module.exports = require("assert");
+
+/***/ }),
+
+/***/ 81:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("child_process");
 
 /***/ }),
 
