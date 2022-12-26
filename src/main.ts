@@ -1,5 +1,4 @@
 import * as core from '@actions/core';
-import { setOutputs } from './helpers';
 import { wait } from './wait';
 
 async function run(): Promise<void> {
@@ -12,7 +11,7 @@ async function run(): Promise<void> {
     const time = new Date().toTimeString();
     core.debug(time);
 
-    setOutputs({ time });
+    core.setOutput('time', time);
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message);
   }
