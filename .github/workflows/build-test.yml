@@ -60,5 +60,5 @@ jobs:
       - uses: ./
         id: test
         with:
-          millisecond: 1000
+          milliseconds: 1000
       - run: echo ${{ steps.test.outputs.time }}

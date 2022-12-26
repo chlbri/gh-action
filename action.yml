@@ -6,6 +6,10 @@ inputs:
     required: true
     description: 'input description here'
     default: 'default value if applicable'
+outputs:
+  time: # change this
+    description: 'Current Time'
+
 runs:
   using: 'node16'
   main: 'build/index.js'
