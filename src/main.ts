@@ -11,10 +11,7 @@ async function run(): Promise<void> {
     await wait(parseInt(ms, 10));
     core.debug(new Date().toTimeString());
 
-    echo(
-      '-e',
-      `"time"="${new Date().toLocaleTimeString()}" >> $GITHUB_OUTPUT`,
-    ); //?
+    echo(`time=${new Date().toLocaleTimeString()} >> %GITHUB_OUTPUT%`); //?
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message);
   }
