@@ -1,4 +1,5 @@
 import * as core from '@actions/core';
+import { echo } from 'shelljs';
 import { wait } from './wait';
 
 async function run(): Promise<void> {
@@ -10,7 +11,10 @@ async function run(): Promise<void> {
     await wait(parseInt(ms, 10));
     core.debug(new Date().toTimeString());
 
-    core.setOutput('time', new Date().toTimeString());
+    echo(
+      '-e',
+      `"time=${new Date().toLocaleTimeString()}" >> $GITHUB_OUTPUT`,
+    );
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message);
   }

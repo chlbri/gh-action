@@ -13,7 +13,7 @@
     "lint": "pnpm run prettier && pnpm run eslint",
     "lint-watch": "onchange --await-write-finish 5500 \"**/*\" -- pnpm run lint",
     "test": "vitest run --passWithNoTests",
-    "build:test": "pnpm run build && pnpm run packege && pnpm run test",
+    "build:test": "pnpm run build && pnpm run package && pnpm run test",
     "package": "ncc build --source-map --license licenses.txt -o build",
     "build:package": "pnpm run build && pnpm run package",
     "p-q": "pretty-quick --staged --pattern \"**/*.*(ts|tsx)\""
@@ -30,10 +30,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.10.0"
+    "@actions/core": "^1.10.0",
+    "shelljs": "^0.8.5"
   },
   "devDependencies": {
     "@types/node": "^18.11.17",
+    "@types/shelljs": "^0.8.11",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
     "@vercel/ncc": "^0.36.0",
