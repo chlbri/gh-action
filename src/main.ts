@@ -12,7 +12,7 @@ async function run(): Promise<void> {
     const time = new Date().toTimeString();
     core.debug(time);
 
-    setOutputs({ time });
+    // setOutputs({ time });
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message);
   }
