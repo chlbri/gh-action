@@ -48,8 +48,10 @@ function run() {
             core.debug(`Waiting ${ms} milliseconds ...`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
             core.debug(new Date().toTimeString());
             yield (0, wait_1.wait)(parseInt(ms, 10));
-            core.debug(new Date().toTimeString());
-            core.setOutput('time', new Date().toTimeString());
+            const time = new Date().toTimeString();
+            core.debug(time);
+            core;
+            // setOutputs({ time });
         }
         catch (error) {
             if (error instanceof Error)
