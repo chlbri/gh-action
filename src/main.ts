@@ -10,7 +10,7 @@ async function run(): Promise<void> {
     await wait(parseInt(ms, 10));
     core.debug(new Date().toTimeString());
 
-    core.setOutput('time', new Date().toTimeString());
+    core.setOutput('time', 'trye');
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message);
   }
