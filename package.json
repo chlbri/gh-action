@@ -18,7 +18,7 @@
     "build:package": "pnpm run build && pnpm run package",
     "p-q": "pretty-quick --staged --pattern \"**/*.*(ts|tsx)\"",
     "husky:pre-commit": "pnpm run p-q && pnpm run build:package",
-    "prepare": "husky install"
+    "husky": "husky install"
   },
   "repository": {
     "type": "git",
