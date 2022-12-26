@@ -7,7 +7,7 @@ export function setOutput(name: string, value: string): void {
 type Props = Record<string, string>;
 
 export function setOutputs<T extends Props>(outputs: T): void {
-  Object.keys(outputs).forEach(key => {
-    setOutput(key, outputs[key]);
+  Object.entries(outputs).forEach(([key, value]) => {
+    setOutput(key, value);
   });
 }
