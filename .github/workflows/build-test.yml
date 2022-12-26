@@ -71,11 +71,16 @@ jobs:
           milliseconds: 1000
 
       - name: Get the output time
-        run: |
-          if [[ "${{ steps.testt.outputs.time }}" == "" ]]
-          then
-            echo "Output is not defined!"
-            exit 1
-          else
-            echo "Output is defined!"
-          fi
+        uses: actions/github-script@v6
+        env:
+          TIME: ${{ steps.testt.outputs.time }}
+        with:
+          script: |
+            if(!process.env.TIME || process.env.TIME === 'undefined')
+            {
+              core.setFailed('TIME is undefined');
+            }
+            else
+            {
+              console.log('TIME is defined');
+            }
