@@ -5,7 +5,7 @@
   "description": "TypeScript template action",
   "main": "lib/main.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf lib && tsc",
     "remove": "rm -rf node_modules pnpm-lock.json",
     "clean": "pnpm run remove && pnpm install",
     "prettier": "prettier --check '**/*.ts'",
@@ -14,7 +14,7 @@
     "lint-watch": "onchange --await-write-finish 5500 \"**/*\" -- pnpm run lint",
     "test": "vitest run --passWithNoTests",
     "build:test": "pnpm run build && pnpm run package && pnpm run test",
-    "package": "ncc build --source-map --license licenses.txt -o build",
+    "package": "rm -rf build && ncc build --source-map --license licenses.txt -o build",
     "build:package": "pnpm run build && pnpm run package",
     "p-q": "pretty-quick --staged --pattern \"**/*.*(ts|tsx)\""
   },

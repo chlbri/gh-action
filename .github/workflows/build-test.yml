@@ -58,7 +58,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./
-        id: test
+        id: testt
         with:
           milliseconds: 1000
-      - run: echo ${{ steps.test.outputs.time }}
+      - run: echo steps.testt.outputs.time
