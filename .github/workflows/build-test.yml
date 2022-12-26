@@ -74,8 +74,10 @@ jobs:
         uses: actions/github-script@v3
         with:
           script: |
-            if [[ ${{ steps.testt.outputs.time }} == "" ]]; then
+            if [ "${{ steps.testt.outputs.time }}" == "" ]
+            then
               core.setFailed('Output is not defined!')
             else
+              echo "${{ steps.testt.outputs.time }}"
               console.log('Output is defined!')
             fi
