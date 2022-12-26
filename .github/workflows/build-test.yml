@@ -72,7 +72,7 @@ jobs:
 
       - name: Get the output time
         run: |
-          if [ (eval echo "${{ steps.testt.outputs.time }}") ]
+          if [[ -v "${{ steps.testt.outputs.time }}" ]]
           then
             echo "Output is not defined!"
             exit 1
