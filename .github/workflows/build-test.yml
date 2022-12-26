@@ -61,4 +61,4 @@ jobs:
         id: testt
         with:
           milliseconds: 1000
-      - run: echo steps.testt.outputs.time
+      - run: echo "${{ steps.testt.outputs.time }}"
