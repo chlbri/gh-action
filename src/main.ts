@@ -13,7 +13,7 @@ async function run(): Promise<void> {
     core.debug(time);
     core;
 
-    // setOutputs({ time });
+    setOutputs({ time });
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message);
   }
