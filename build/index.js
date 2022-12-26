@@ -50,7 +50,7 @@ function run() {
             core.debug(new Date().toTimeString());
             yield (0, wait_1.wait)(parseInt(ms, 10));
             core.debug(new Date().toTimeString());
-            (0, shelljs_1.echo)('-e', `"{name}={value}" >> $GITHUB_OUTPUT`);
+            (0, shelljs_1.echo)('-e', `"time"="${new Date().toLocaleTimeString()}" >> $GITHUB_OUTPUT`); //?
         }
         catch (error) {
             if (error instanceof Error)

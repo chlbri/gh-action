@@ -13,8 +13,8 @@ async function run(): Promise<void> {
 
     echo(
       '-e',
-      `"time=${new Date().toLocaleTimeString()}" >> $GITHUB_OUTPUT`,
-    );
+      `"time"="${new Date().toLocaleTimeString()}" >> $GITHUB_OUTPUT`,
+    ); //?
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message);
   }
